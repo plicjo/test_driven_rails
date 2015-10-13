@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
 
+gem 'adequate_exposure'
+gem 'haml-rails'
 gem 'rails', '4.2.4'
 gem 'sqlite3'
 gem 'sass-rails', '~> 5.0'
