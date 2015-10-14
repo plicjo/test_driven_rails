@@ -2,7 +2,7 @@ class TodosController < ApplicationController
   before_filter :authenticate
 
   expose(:todo)
-  expose(:todos) { Todo.all }
+  expose(:todos) { Todo.where(email: session[:current_email]) }
 
   def create
     todo.save
@@ -12,6 +12,8 @@ class TodosController < ApplicationController
   private
 
   def todo_params
-    params.require(:todo).permit(:title)
+    params.require(:todo)
+          .permit(:title)
+          .merge(email: session[:current_email])
   end
 end
