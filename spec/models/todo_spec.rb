@@ -22,4 +22,12 @@ describe Todo do
       expect(todo).to be_completed
     end
   end
+
+  describe '#mark_incomplete!' do
+    let(:todo) { Todo.create(completed_at: Time.current) }
+    it 'resets completed_at' do
+      todo.mark_incomplete!
+      expect(todo).to_not be_completed
+    end
+  end
 end

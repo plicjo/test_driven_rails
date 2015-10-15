@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   resources :sessions, only: %i(new create)
 
   resources :todos, only: [:new, :create, :index] do
-    resource :completion, only: :create
+    resource :completion, only: %i(create destroy)
   end
 end
