@@ -3,7 +3,7 @@
 %ul.todos
   - todos.each do |todo|
     %li{class: ('completed' if todo.completed?)}
-      Buy milk
+      = todo.title
       - if todo.completed?
         = button_to 'Mark Incomplete', todo_completion_path(todo), method: :delete
       - else

@@ -5,7 +5,7 @@ class TodosController < ApplicationController
   expose(:todos) { current_user.todos }
 
   def create
-    current_user.todos.create( { title: 'Buy milk' } )
+    current_user.todos.create(todo_params)
     redirect_to todos_path
   end
 
