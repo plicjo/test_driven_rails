@@ -6,7 +6,7 @@ class TodosController < ApplicationController
 
    def create
 #     current_user.todos.create(todo_params)
-     Todo.create
+     Todo.create(email: current_user.email)
      redirect_to todos_path
    end
 
