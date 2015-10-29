@@ -8,7 +8,9 @@ describe TodosController do
     end
   end
 
-  let(:current_user) { Object.new }
+  let(:current_user) do
+    User.new(random_string)
+  end
 
   it "should be an application controller" do
     controller.is_a?(ApplicationController).must_equal true
@@ -18,13 +20,9 @@ describe TodosController do
 
     let(:todos_path) { Object.new }
 
-    let(:email) { random_string }
-
     before do
       controller.stubs(:todos_path).returns todos_path
       controller.stubs :redirect_to
-
-      current_user.stubs(:email).returns email
 
       Todo.delete_all
     end
@@ -38,7 +36,7 @@ describe TodosController do
 
       it "should be associated to the current user via email" do
         controller.create
-        Todo.first.email.must_equal email
+        Todo.first.email.must_equal current_user.email
       end
 
     end
