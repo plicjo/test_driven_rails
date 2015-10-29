@@ -6,7 +6,9 @@ class TodosController < ApplicationController
 
   def create
     current_user.todos.create(todo_params)
-    redirect_to todos_path
+    #redirect_to todos_path
+    #redirect_to '/'
+    redirect_to '/todos'
   end
 
   private
