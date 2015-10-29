@@ -4,10 +4,10 @@ class TodosController < ApplicationController
 #   expose(:todo)
 #   expose(:todos) { current_user.todos }
 
-#   def create
+   def create
 #     current_user.todos.create(todo_params)
-#     redirect_to todos_path
-#   end
+     redirect_to todos_path
+   end
 
 #   private
 
