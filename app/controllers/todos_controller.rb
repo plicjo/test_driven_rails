@@ -1,4 +1,4 @@
-class TodosController#< ApplicationController
+class TodosController < ApplicationController
 #   before_filter :authenticate
 
 #   expose(:todo)
