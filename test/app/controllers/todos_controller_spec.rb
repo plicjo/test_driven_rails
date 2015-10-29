@@ -14,11 +14,18 @@ describe TodosController do
 
     before do
       controller.stubs(:todos_path).returns todos_path
+      controller.stubs :redirect_to
+
+      Todo.delete_all
     end
 
-    it "should redirect to the todos path" do
-      controller.expects(:redirect_to).with todos_path
-      controller.create
+    describe "creating the todo" do
+
+      it "should create a Todo" do
+        controller.create
+        Todo.count.must_equal 1
+      end
+
     end
 
   end
