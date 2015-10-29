@@ -5,8 +5,7 @@ class TodosController < ApplicationController
 #   expose(:todos) { current_user.todos }
 
    def create
-#     current_user.todos.create(todo_params)
-     Todo.create(email: current_user.email)
+     current_user.todos.create({})
      redirect_to todos_path
    end
 
