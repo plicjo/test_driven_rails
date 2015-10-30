@@ -55,4 +55,12 @@ describe TodosController do
 
   end
 
+  describe "todos" do
+    it "should return the todos from the current user" do
+      todos = Object.new
+      current_user.stubs(:todos).returns todos
+      controller.todos.must_be_same_as todos
+    end
+  end
+
 end
